@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  flask:
+    container_name: menstagram_flask
+    build: .
+    ports:
+      - 8001:80
+    volumes:
+      - .:/app
+    command: flask run -h 0.0.0.0 -p 80
