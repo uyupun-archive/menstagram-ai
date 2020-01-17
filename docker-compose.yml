@@ -9,3 +9,9 @@ services:
     volumes:
       - .:/app
     command: python app.py
+    networks:
+      - menstagram
+
+networks:
+  menstagram:
+    external: true

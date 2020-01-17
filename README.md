@@ -9,6 +9,7 @@ menstagram-aiはMenstagramのラーメン判定API開発のためのリポジト
 ```bash
 $ git clone https://github.com/uyupun/menstagram-ai.git
 $ cd menstagram-ai
+$ docker network create menstagram  // menstagram-apiですでに作成している場合は実行しなくて良い
 $ make init
 ```
 
