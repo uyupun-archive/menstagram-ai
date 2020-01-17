@@ -1,3 +1,4 @@
+import os
 import logging
 
 from flask import Flask, request, jsonify
@@ -12,7 +13,8 @@ def index():
 
 @app.route('/api/v1/ramen/judge', methods = ['POST'])
 def judge_ramen():
-    app.logger.info(request.files.get('image1'))
+    file = request.files.get('image1')
+    file.save(os.path.join(file.filename))
 
     # TODO: ラーメン判定
 
