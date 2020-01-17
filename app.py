@@ -12,8 +12,7 @@ def index():
 
 @app.route('/api/v1/ramen/judge', methods = ['POST'])
 def ramen_judge():
-    # TODO: 画像リクエストの受け取り
-    app.logger.info(request.form.get('hoge'))
+    app.logger.info(request.files.get('image1'))
 
     # TODO: ラーメン判定
 
