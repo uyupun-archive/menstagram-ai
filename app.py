@@ -4,8 +4,8 @@ import logging
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
-
-logging.basicConfig(filename = 'logs/flask.log', format = '[%(asctime)s] %(levelname)s: %(message)s', level = 'DEBUG')
+app.config.from_pyfile('.env')
+logging.basicConfig(filename = 'logs/flask.log', format = '[%(asctime)s] %(levelname)s: %(message)s', level = app.config['LOG_LEVEL'])
 
 @app.route('/')
 def index():
