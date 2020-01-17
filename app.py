@@ -1,4 +1,4 @@
-import logging.handlers
+import logging
 
 from flask import Flask, request, jsonify
 
@@ -11,7 +11,7 @@ def index():
     return 'Menstagram AI'
 
 @app.route('/api/v1/ramen/judge', methods = ['POST'])
-def ramen_judge():
+def judge_ramen():
     app.logger.info(request.files.get('image1'))
 
     # TODO: ラーメン判定
