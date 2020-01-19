@@ -8,9 +8,9 @@ dist_path = './learn_data/'
 
 images = os.listdir(src_path)
 
-os.makedirs(dist_path + 'train', exist_ok = True)
-os.makedirs(dist_path + 'validation', exist_ok = True)
-os.makedirs(dist_path + 'test', exist_ok = True)
+os.makedirs(dist_path + 'train/ramen', exist_ok = True)
+os.makedirs(dist_path + 'validation/ramen', exist_ok = True)
+os.makedirs(dist_path + 'test/ramen', exist_ok = True)
 
 images_len = len(images)
 train_border = int(images_len * 0.8)
@@ -20,8 +20,8 @@ test_border = images_len
 for i, image in enumerate(images):
     file_name = str(i + 1) + '.jpg'
     if i < train_border:
-        shutil.copy(src_path + image, dist_path + 'train/' + file_name)
+        shutil.copy(src_path + image, dist_path + 'train/ramen/' + file_name)
     elif i < validation_border:
-        shutil.copy(src_path + image, dist_path + 'validation/' + file_name)
+        shutil.copy(src_path + image, dist_path + 'validation/ramen/' + file_name)
     elif i < test_border:
-        shutil.copy(src_path + image, dist_path + 'test/' + file_name)
+        shutil.copy(src_path + image, dist_path + 'test/ramen/' + file_name)
