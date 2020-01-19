@@ -15,7 +15,5 @@ elif [ ! -e 'chromedriver' ];then
   echo "Download from http://chromedriver.chromium.org/downloads"
   echo "Then move 'chromedriver' file to 'ml' directory."
 else
-  echo "Download images of 'ramen' ..."
   googleimagesdownload -ri -cd "./chromedriver" -k "ラーメン" -f "jpg" -l 1000
-  echo "Success! Download finished!"
 fi
