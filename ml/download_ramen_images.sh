@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# ラーメンの画像(学習データ)の収集に必要なライブラリをインストールし, 画像を収集する
+
 if !(type "python" > /dev/null 2>&1);then
   echo "'Python' is not exists."
   echo "Please install 'Python'."
