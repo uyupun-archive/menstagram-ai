@@ -18,4 +18,6 @@ elif [ ! -e 'chromedriver' ];then
   echo "Then move 'chromedriver' file to 'ml' directory."
 else
   googleimagesdownload -ri -cd "./chromedriver" -k "ラーメン" -f "jpg" -l 1000
+  googleimagesdownload -ri -cd "./chromedriver" -k "二郎系ラーメン" -f "jpg" -l 1000
+  googleimagesdownload -ri -cd "./chromedriver" -k "家系ラーメン" -f "jpg" -l 1000
 fi

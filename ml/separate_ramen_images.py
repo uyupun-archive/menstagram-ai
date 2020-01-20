@@ -3,25 +3,46 @@
 import os
 import shutil
 
-src_path = './downloads/ラーメン/'
-dist_path = './learn_data/'
+def get_category_name(src_path):
+    if '二郎系' in src_path:
+        return 'jirokei_ramen'
+    elif '家系' in src_path:
+        return 'iekei_ramen'
+    return 'ramen'
 
-images = os.listdir(src_path)
+def make_dirs(dist_path, category_name):
+    os.makedirs(dist_path + 'train/' + category_name, exist_ok = True)
+    os.makedirs(dist_path + 'validation/' + category_name, exist_ok = True)
+    os.makedirs(dist_path + 'test/' + category_name, exist_ok = True)
 
-os.makedirs(dist_path + 'train/ramen', exist_ok = True)
-os.makedirs(dist_path + 'validation/ramen', exist_ok = True)
-os.makedirs(dist_path + 'test/ramen', exist_ok = True)
+def get_borders(images_len):
+    train_border = int(images_len * 0.8)
+    validation_border = int(images_len * 0.9)
+    test_border = images_len
+    return train_border, validation_border, test_border
 
-images_len = len(images)
-train_border = int(images_len * 0.8)
-validation_border = int(images_len * 0.9)
-test_border = images_len
+def main():
+    src_paths = [
+        './downloads/ラーメン/',
+        './downloads/二郎系ラーメン/',
+        './downloads/家系ラーメン/',
+    ]
+    dist_path = './learn_data/'
 
-for i, image in enumerate(images):
-    file_name = str(i + 1) + '.jpg'
-    if i < train_border:
-        shutil.copy(src_path + image, dist_path + 'train/ramen/' + file_name)
-    elif i < validation_border:
-        shutil.copy(src_path + image, dist_path + 'validation/ramen/' + file_name)
-    elif i < test_border:
-        shutil.copy(src_path + image, dist_path + 'test/ramen/' + file_name)
+    for src_path in src_paths:
+        images = os.listdir(src_path)
+        category_name = get_category_name(src_path)
+        make_dirs(dist_path, category_name)
+        train_border, validation_border, test_border = get_borders(len(images))
+
+        for i, image in enumerate(images):
+            file_name = str(i + 1) + '.jpg'
+            if i < train_border:
+                shutil.copy(src_path + image, dist_path + 'train/' + category_name + '/' + file_name)
+            elif i < validation_border:
+                shutil.copy(src_path + image, dist_path + 'validation/' + category_name + '/' + file_name)
+            elif i < test_border:
+                shutil.copy(src_path + image, dist_path + 'test/' + category_name + '/' + file_name)
+
+if __name__ == '__main__':
+    main()
