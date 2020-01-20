@@ -4,11 +4,11 @@ import os
 import shutil
 
 def get_category_name(src_path):
-    if '二郎系' in src_path:
-        return 'jirokei_ramen'
-    elif '家系' in src_path:
-        return 'iekei_ramen'
-    return 'ramen'
+    if 'ラーメン' in src_path:
+        return '_ramen'
+    elif 'スタバ' in src_path:
+        return '_sutaba'
+    return '_other'
 
 def make_dirs(dist_path, category_name):
     os.makedirs(dist_path + 'train/' + category_name, exist_ok = True)
@@ -24,8 +24,10 @@ def get_borders(images_len):
 def main():
     src_paths = [
         './downloads/ラーメン/',
-        './downloads/二郎系ラーメン/',
-        './downloads/家系ラーメン/',
+        './downloads/スタバ/',
+        './downloads/画像/',
+        './downloads/写真/',
+        './downloads/静止画/',
     ]
     dist_path = './learn_data/'
 

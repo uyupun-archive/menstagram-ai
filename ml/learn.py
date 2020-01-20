@@ -1,43 +1,47 @@
 # VGG16 + 転移学習で学習する
 
-from keras.models import Model
-from keras.layers import Dense, GlobalAveragePooling2D, Input
+from keras.models import Sequential, Model
+from keras.layers import Input, Flatten, Dense, Dropout
 from keras.optimizers import SGD
 from keras.applications.vgg16 import VGG16
 from keras.preprocessing.image import ImageDataGenerator
 
 IMAGE_SIZE = 224
-CATEGORIES = 3
-BATCH_SIZE = 16
+CLASSES = ['_ramen', '_sutaba', '_other']
+CLASSES_LEN = len(CLASSES)
+BATCH_SIZE = 5
 EPOCHS = 50
-TRAINING = 1600
-VALIDATION = 400
+TRAININGS = 30
+VALIDATIONS = 5
+
+train_data_dir = './learn_data/train'
+validation_data_dir = './learn_data/validation'
 
 input_tensor = Input(shape = (IMAGE_SIZE, IMAGE_SIZE, 3))
 base_model = VGG16(weights = 'imagenet', include_top = False, input_tensor = input_tensor)
 
-x = base_model.output
-x = GlobalAveragePooling2D()(x)
-x = Dense(1024, activation = 'relu')(x)
-outputs = Dense(CATEGORIES, activation = 'softmax')(x)
-model = Model(inputs = base_model.input, outputs = outputs)
+model = Sequential()
+model.add(Flatten(input_shape = base_model.output_shape[1:]))
+model.add(Dense(256, activation = 'relu'))
+model.add(Dropout(0.5))
+model.add(Dense(CLASSES_LEN, activation = 'softmax'))
 
-for layer in base_model.layers:
+model = Model(input = base_model.input, output = model(base_model.output))
+
+for layer in base_model.layers[:15]:
     layer.trainable = False
 
-model.compile(optimizer = SGD(lr = 0.0001, momentum = 0.9), loss = 'cross_crossentropy', metrics = ['accuracy'])
+model.compile(optimizer = SGD(lr = 1e-3, momentum = 0.9), loss = 'categorical_crossentropy', metrics = ['accuracy'])
 
 model.summary()
-
-train_data_dir = './learn_data/train'
-validation_data_dir = './learn_data/validation'
 
 train_data_gen = ImageDataGenerator(
     rescale = 1.0 / 255,
     shear_range = 0.2,
     zoom_range = 0.2,
     horizontal_flip = True,
-    rotation_range = 10)
+    rotation_range = 10
+)
 validation_data_gen = ImageDataGenerator(
     rescale = 1.0 / 255,
 )
@@ -57,12 +61,13 @@ validation_generator = validation_data_gen.flow_from_directory(
     shuffle = True
 )
 
-history = model.fit_generator(train_generator,
-   steps_per_epoch = TRAINING // BATCH_SIZE,
-   epochs = EPOCHS,
-   verbose = 1,
-   validation_data = validation_generator,
-   validation_steps = VALIDATION // BATCH_SIZE,
+history = model.fit_generator(
+    train_generator,
+    steps_per_epoch = TRAININGS // BATCH_SIZE,
+    epochs = EPOCHS,
+    verbose = 1,
+    validation_data = validation_generator,
+    validation_steps = VALIDATIONS // BATCH_SIZE,
 )
 
 model.save('judge-ramen-model.h5')
