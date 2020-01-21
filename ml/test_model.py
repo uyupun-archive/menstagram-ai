@@ -3,7 +3,7 @@ import numpy as np
 import keras.preprocessing.image as Image
 
 from keras.models import load_model
-from keras.applications.vgg16 import preprocess_input, decode_predictions
+from keras.applications.vgg16 import preprocess_input
 
 model = load_model('judge-ramen-model.h5')
 
