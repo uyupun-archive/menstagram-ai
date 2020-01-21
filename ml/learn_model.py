@@ -7,7 +7,7 @@ from keras.applications.vgg16 import VGG16
 from keras.preprocessing.image import ImageDataGenerator
 
 IMAGE_SIZE = 224
-CLASSES = ['_ramen', '_sutaba', '_other']
+CLASSES = ['_ramen', '_other']
 CLASSES_LEN = len(CLASSES)
 BATCH_SIZE = 5
 EPOCHS = 50
@@ -28,7 +28,7 @@ model.add(Dense(CLASSES_LEN, activation = 'softmax'))
 
 model = Model(input = base_model.input, output = model(base_model.output))
 
-for layer in base_model.layers[:15]:
+for layer in model.layers[:15]:
     layer.trainable = False
 
 model.compile(optimizer = SGD(lr = 1e-3, momentum = 0.9), loss = 'categorical_crossentropy', metrics = ['accuracy'])

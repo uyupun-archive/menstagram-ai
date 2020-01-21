@@ -6,8 +6,6 @@ import shutil
 def get_class_name(src_path):
     if 'ラーメン' in src_path:
         return '_ramen'
-    elif 'スタバ' in src_path:
-        return '_sutaba'
     return '_other'
 
 def make_dirs(dist_path, class_name):
@@ -24,7 +22,6 @@ def get_borders(images_len):
 def main():
     src_paths = [
         './downloads/ラーメン/',
-        './downloads/スタバ/',
         './downloads/画像/',
         './downloads/写真/',
         './downloads/静止画/',

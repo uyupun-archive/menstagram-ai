@@ -9,15 +9,12 @@ model = load_model('judge-ramen-model.h5')
 
 test_data_paths = [
     './learn_data/test/_ramen/',
-    './learn_data/test/_sutaba/',
     './learn_data/test/_other/',
 ]
 
 for i, test_data_path in enumerate(test_data_paths):
     if i == 0:
         print('ramen')
-    elif i == 1:
-        print('sutaba')
     else:
         print('other')
 
@@ -29,11 +26,8 @@ for i, test_data_path in enumerate(test_data_paths):
         x = np.expand_dims(x, axis = 0)
         x = preprocess_input(x)
         ans = model.predict(x, 1)[0]
-
         for j, score in enumerate(ans):
             if j == 0:
                 print('{}: {:.2%} '.format('other', score), end = '')
-            elif j == 1:
-                print('{}: {:.2%} '.format('ramen', score), end = '')
             else:
-                print('{}: {:.2%} '.format('sutaba', score))
+                print('{}: {:.2%} '.format('ramen', score))
