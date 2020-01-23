@@ -7,7 +7,8 @@ from flask import Flask, request, jsonify
 from keras.models import load_model
 from keras.applications.vgg16 import preprocess_input
 
-model = load_model('./ml/judge-ramen-model.h5')
+model = load_model('ml/judge-ramen-model.h5')
+model._make_predict_function()
 
 app = Flask(__name__)
 app.config.from_pyfile('.env')
@@ -30,8 +31,8 @@ def index():
 
 @app.route('/api/v1/ramen/judge', methods = ['POST'])
 def judge_ramen():
-    file = request.files.get('image1')
-    file.save(os.path.join(file.filename))
+    # file = request.files.get('image1')
+    # file.save(os.path.join(file.filename))
 
     res = predict()
 
