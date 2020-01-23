@@ -13,7 +13,17 @@ $ docker network create menstagram  // menstagram-apiですでに作成してい
 $ make init
 ```
 
-### コマンド
+### 学習フェーズ
+学習は処理が重いので基本的にはローカルで実行する.
+
+```bash
+$ ml/download_learn_data.sh // 学習データの自動収集
+$ pipenv run train          // 学習
+$ pipenv run test           // 学習結果の検証
+```
+
+### 予測フェーズ
+サーバの起動・終了.
 
 ```bash
 $ make up       // 起動
