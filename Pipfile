@@ -15,3 +15,8 @@ keras = "==2.2.4"
 
 [requires]
 python_version = "3.7"
+
+[scripts]
+serve = "python app.py"
+train = "python ml/train_model.py"
+test = "python ml/test_model.py"

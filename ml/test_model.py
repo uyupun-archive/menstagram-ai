@@ -5,11 +5,11 @@ import keras.preprocessing.image as Image
 from keras.models import load_model
 from keras.applications.vgg16 import preprocess_input
 
-model = load_model('judge-ramen-model.h5')
+model = load_model('ml/judge-ramen-model.h5')
 
 test_data_paths = [
-    './learn_data/test/_ramen/',
-    './learn_data/test/_other/',
+    'ml/learn_data/test/_ramen/',
+    'ml/learn_data/test/_other/',
 ]
 
 for i, test_data_path in enumerate(test_data_paths):
