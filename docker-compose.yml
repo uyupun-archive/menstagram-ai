@@ -3,7 +3,7 @@ version: '3'
 services:
   # Webサーバ
   nginx:
-    container_name: menstagram_api_nginx
+    container_name: menstagram_ai_nginx
     image: nginx
     ports:
       - 8001:80
