@@ -12,7 +12,7 @@ model._make_predict_function()
 
 app = Flask(__name__)
 app.config.from_pyfile('.env')
-logging.basicConfig(filename = 'logs/flask.log', format = '[%(asctime)s] %(levelname)s: %(message)s', level = app.config['LOG_LEVEL'])
+logging.basicConfig(filename = 'app/logs/flask.log', format = '[%(asctime)s] %(levelname)s: %(message)s', level = app.config['LOG_LEVEL'])
 
 def predict():
     image_path = './ml/learn_data/test/_ramen/663.jpg'
