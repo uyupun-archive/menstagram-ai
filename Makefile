@@ -10,4 +10,4 @@ down:
 	docker-compose down
 
 sh:
-	docker-compose exec flask bash
+	docker-compose exec uwsgi bash
