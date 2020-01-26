@@ -16,7 +16,7 @@ services:
     networks:
       - menstagram
 
-  # Flask + WSGIサーバ
+  # Web API + WSGIサーバ
   uwsgi:
     container_name: menstagram_ai_uwsgi
     build:

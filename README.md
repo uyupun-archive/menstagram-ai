@@ -14,7 +14,7 @@ $ make init
 ```
 
 ### 学習フェーズ
-学習は処理が重いので基本的にはローカルで実行する.
+学習は処理が重いので基本的にはホストマシンで実行する.
 
 ```bash
 $ ml/download_learn_data.sh // 学習データの自動収集
@@ -26,7 +26,7 @@ $ pipenv run test           // 学習結果の検証
 サーバの起動・終了.
 
 ```bash
-$ make up       // 起動
+$ make up       // 起動(localhost:8001)
 $ make down     // 終了
-$ make sh       // bashの起動
+$ make sh       // Bashの起動
 ```
