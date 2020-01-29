@@ -1,7 +1,8 @@
 # menstagram-ai
 
-**🍜 SUSURU FOREVER, SUSURU ANYWHERE 🍜**
+<img src="logo.png" width="500">
 
+**🍜 SUSURU FOREVER, SUSURU ANYWHERE 🍜**  
 menstagram-aiはMenstagramのラーメン判定API開発のためのリポジトリです。
 
 ### 環境構築
