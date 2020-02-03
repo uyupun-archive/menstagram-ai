@@ -1,5 +1,5 @@
 init:
-	cp ./app/.env.dev ./app/.env
+	cp ./api/.env.dev ./api/.env
 	docker-compose build --no-cache
 	docker-compose up -d
 

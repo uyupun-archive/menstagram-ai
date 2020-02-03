@@ -2,6 +2,6 @@ from flask import Blueprint
 
 index = Blueprint('index', __name__)
 
-# @app.route('/')
+# @api.route('/')
 # def index():
 #     return 'hoge'

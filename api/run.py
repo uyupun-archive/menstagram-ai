@@ -26,7 +26,7 @@ def predict():
     # ramen = ans[1]
     return []
 
-# app.register_blueprint(index)
+# api.register_blueprint(index)
 @app.route('/')
 def index():
     return 'Menstagram AI'
