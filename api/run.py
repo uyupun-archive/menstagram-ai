@@ -6,7 +6,6 @@ import keras.preprocessing.image as Image
 from flask import Flask, request, jsonify
 from keras.models import load_model
 from keras.applications.vgg16 import preprocess_input
-# from index.hoge import index
 
 # model = load_model('trainer/judge-ramen-model.h5')
 # model._make_predict_function()
@@ -26,7 +25,6 @@ def predict():
     # ramen = ans[1]
     return []
 
-# api.register_blueprint(index)
 @app.route('/')
 def index():
     return 'Menstagram AI'

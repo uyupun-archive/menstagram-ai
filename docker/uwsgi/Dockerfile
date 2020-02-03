@@ -9,6 +9,6 @@ RUN pip install pipenv
 WORKDIR /var/www
 COPY Pipfile ./
 COPY Pipfile.lock ./
-RUN pipenv install --dev --system
+RUN pipenv install --dev --system --verbose
 
 WORKDIR /var/www/api
