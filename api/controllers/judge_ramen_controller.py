@@ -2,9 +2,15 @@ import numpy as np
 import keras.preprocessing.image as Image
 
 from flask import jsonify
+from keras.models import load_model
 from keras.applications.vgg16 import preprocess_input
 from api import app
-from api import model
+
+@app.before_first_request
+def init():
+    global model
+    model = load_model('trainer/judge-ramen-model.h5')
+    model._make_predict_function()
 
 def predict():
     image_path = './trainer/learn_data/test/_ramen/663.jpg'
