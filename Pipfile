@@ -18,5 +18,5 @@ uwsgi = "*"
 python_version = "3.7"
 
 [scripts]
-train = "python ml/train_model.py"
-test = "python ml/test_model.py"
+train = "python trainer/train_model.py"
+test = "python trainer/test_model.py"

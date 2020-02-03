@@ -14,8 +14,8 @@ EPOCHS = 50
 TRAININGS = 30
 VALIDATIONS = 5
 
-train_data_dir = 'ml/learn_data/train'
-validation_data_dir = 'ml/learn_data/validation'
+train_data_dir = 'trainer/learn_data/train'
+validation_data_dir = 'trainer/learn_data/validation'
 
 input_tensor = Input(shape = (IMAGE_SIZE, IMAGE_SIZE, 3))
 base_model = VGG16(weights = 'imagenet', include_top = False, input_tensor = input_tensor)
@@ -70,4 +70,4 @@ history = model.fit_generator(
     validation_steps = VALIDATIONS // BATCH_SIZE,
 )
 
-model.save('ml/judge-ramen-model.h5')
+model.save('trainer/judge-ramen-model.h5')

@@ -8,7 +8,7 @@ from keras.models import load_model
 from keras.applications.vgg16 import preprocess_input
 # from index.hoge import index
 
-# model = load_model('ml/judge-ramen-model.h5')
+# model = load_model('trainer/judge-ramen-model.h5')
 # model._make_predict_function()
 
 app = Flask(__name__)
@@ -16,7 +16,7 @@ app.config.from_pyfile('.env')
 logging.basicConfig(filename = 'logs/flask.log', format = '[%(asctime)s] %(levelname)s: %(message)s', level = app.config['LOG_LEVEL'])
 
 def predict():
-    image_path = './ml/learn_data/test/_ramen/663.jpg'
+    image_path = './trainer/learn_data/test/_ramen/663.jpg'
     # image = Image.load_img(image_path, target_size = (224, 224))
     # x = Image.img_to_array(image)
     # x = np.expand_dims(x, axis = 0)

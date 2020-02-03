@@ -15,7 +15,7 @@ elif [ ! -e 'chromedriver' ];then
   echo "'chromedriver is not exists.'"
   echo "Please download 'chromedriver' that matches your 'Google Chrome' version."
   echo "Download from http://chromedriver.chromium.org/downloads"
-  echo "Then move 'chromedriver' file to 'ml' directory."
+  echo "Then move 'chromedriver' file to 'trainer' directory."
 else
   googleimagesdownload -ri -cd "./chromedriver" -k "ラーメン" -f "jpg" -l 1000
   googleimagesdownload -ri -cd "./chromedriver" -k "画像" -f "jpg" -l 1000
