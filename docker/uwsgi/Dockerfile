@@ -11,4 +11,4 @@ COPY Pipfile ./
 COPY Pipfile.lock ./
 RUN pipenv install --dev --system --verbose
 
-WORKDIR /var/www/api
+WORKDIR /var/www
