@@ -1,7 +1,7 @@
 import numpy as np
 import keras.preprocessing.image as Image
 
-from flask import jsonify
+from flask import request, jsonify
 from keras.models import load_model
 from keras.applications.vgg16 import preprocess_input
 from api import app
@@ -12,9 +12,8 @@ def init():
     model = load_model('trainer/judge-ramen-model.h5')
     model._make_predict_function()
 
-def predict():
-    image_path = './trainer/learn_data/test/_ramen/663.jpg'
-    image = Image.load_img(image_path, target_size = (224, 224))
+def predict(image):
+    image = Image.load_img(image, target_size = (224, 224))
     x = Image.img_to_array(image)
     x = np.expand_dims(x, axis = 0)
     x = preprocess_input(x)
@@ -26,6 +25,7 @@ def predict():
 
 @app.route('/api/v1/ramen/judge', methods = ['POST'])
 def judge_ramen():
+    image = request.files.get('image1')
     return jsonify([
-        predict()
+        predict(image)
     ])
