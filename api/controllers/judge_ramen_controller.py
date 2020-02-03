@@ -25,7 +25,18 @@ def predict(image):
 
 @app.route('/api/v1/ramen/judge', methods = ['POST'])
 def judge_ramen():
-    image = request.files.get('image1')
-    return jsonify([
-        predict(image)
-    ])
+    images = []
+    if 'image1' in request.files:
+        images.append(request.files.get('image1'))
+    if 'image2' in request.files:
+        images.append(request.files.get('image2'))
+    if 'image3' in request.files:
+        images.append(request.files.get('image3'))
+    if 'image4' in request.files:
+        images.append(request.files.get('image4'))
+
+    res = []
+    for image in images:
+        res.append(predict(image))
+
+    return jsonify(res)
