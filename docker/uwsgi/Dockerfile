@@ -10,5 +10,3 @@ WORKDIR /var/www
 COPY Pipfile ./
 COPY Pipfile.lock ./
 RUN pipenv install --dev --system --verbose
-
-WORKDIR /var/www
