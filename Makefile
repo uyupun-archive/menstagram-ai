@@ -1,5 +1,4 @@
 init:
-	pipenv install --dev
 	cp ./api/config.py.dev ./api/config.py
 	docker-compose build --no-cache
 	docker-compose up -d

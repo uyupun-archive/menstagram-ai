@@ -21,12 +21,12 @@ def get_borders(images_len):
 
 def main():
     src_paths = [
-        './downloads/ラーメン/',
-        './downloads/画像/',
-        './downloads/写真/',
-        './downloads/静止画/',
+        'trainer/downloads/ラーメン/',
+        'trainer/downloads/画像/',
+        'trainer/downloads/写真/',
+        'trainer/downloads/静止画/',
     ]
-    dist_path = './learn_data/'
+    dist_path = 'trainer/learn_data/'
 
     for src_path in src_paths:
         images = os.listdir(src_path)

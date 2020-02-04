@@ -18,5 +18,6 @@ uwsgi = "*"
 python_version = "3.7"
 
 [scripts]
+separate = "python trainer/separate_learn_data.py"
 train = "python trainer/train_model.py"
 test = "python trainer/test_model.py"
