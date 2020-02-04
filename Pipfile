@@ -1,0 +1,22 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+google-images-download = "*"
+
+[packages]
+flask = "*"
+numpy = "==1.15.4"
+pillow = "*"
+tensorflow = "==1.14.0"
+keras = "==2.2.4"
+uwsgi = "*"
+
+[requires]
+python_version = "3.7"
+
+[scripts]
+train = "python trainer/train_model.py"
+test = "python trainer/test_model.py"
