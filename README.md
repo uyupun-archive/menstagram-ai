@@ -17,7 +17,9 @@ $ make init
 学習は処理が重いので基本的にはホストマシン側で実行する.
 
 ```bash
+$ pipenv install --dev           // ライブラリのインストール
 $ trainer/download_learn_data.sh // 学習データの自動収集
+$ pipenv run separate            // 学習データの分類
 $ pipenv run train               // 学習
 $ pipenv run test                // 学習結果の検証
 ```
