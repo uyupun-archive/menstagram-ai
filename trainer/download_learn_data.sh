@@ -2,7 +2,7 @@
 
 # ラーメンの画像(学習データ)の収集に必要なライブラリをインストールし, 画像を収集する
 
-if [ ! -e 'chromedriver' ];then
+if [[ ! -e trainer/chromedriver ]]; then
   echo "'chromedriver is not exists.'"
   echo "Please download 'chromedriver' that matches your 'Google Chrome' version."
   echo "Download from http://chromedriver.chromium.org/downloads"
