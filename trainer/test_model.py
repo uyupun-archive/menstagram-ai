@@ -8,8 +8,8 @@ from keras.applications.vgg16 import preprocess_input
 model = load_model('trainer/judge-ramen-model.h5')
 
 test_data_paths = [
-    'trainer/learn_data/test/_ramen/',
-    'trainer/learn_data/test/_other/',
+    'trainer/learn_data/test/ramen/',
+    'trainer/learn_data/test/other/',
 ]
 
 for i, test_data_path in enumerate(test_data_paths):
