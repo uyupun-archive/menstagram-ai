@@ -5,8 +5,8 @@ import shutil
 
 def get_class_name(src_path):
     if 'ラーメン' in src_path:
-        return '_ramen'
-    return '_other'
+        return 'ramen'
+    return 'other'
 
 def make_dirs(dist_path, class_name):
     os.makedirs(dist_path + 'train/' + class_name, exist_ok = True)
