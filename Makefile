@@ -11,3 +11,6 @@ down:
 
 sh:
 	docker-compose exec uwsgi bash
+
+ps:
+	docker-compose ps
