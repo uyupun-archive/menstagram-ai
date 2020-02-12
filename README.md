@@ -35,5 +35,6 @@ $ make init
 ```bash
 $ make up       // 起動(localhost:8001)
 $ make down     // 終了
+$ make ps       // コンテナの状態(プロセス)の確認
 $ make sh       // Bashの起動
 ```
